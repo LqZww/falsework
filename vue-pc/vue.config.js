@@ -96,5 +96,10 @@ module.exports = {
         }
       )
 
+    // 去除log
+    config.optimization.minimizer('terser').tap(options => {
+      options[0].terserOptions.compress.drop_console = true;
+      return options;
+    })
   }
 }
