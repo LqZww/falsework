@@ -14,7 +14,7 @@ module.exports = {
     open: true,
     proxy: {
       '/api': {
-        target: 'http://192.168.3.153:9098',
+        target: process.env.VUE_APP_BASE_API,
         secure: false,  // 如果是https接口，需要配置这个参数
         ws: false,  //代理websockets
         changeOrigin: true,

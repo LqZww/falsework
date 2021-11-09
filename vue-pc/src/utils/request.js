@@ -4,7 +4,7 @@ import { getToken } from '@/utils/auth'
 
 
 const service = axios.create({
-  baseURL: '/api',
+  baseURL: process.env.NODE_ENV === 'production' ? process.env.VUE_APP_BASE_API : '/api',
   // withCredentials: true, // 跨域请求时发送cookies
   timeout: 10000
 })
