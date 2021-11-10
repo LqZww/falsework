@@ -11,6 +11,7 @@ Vue.use(element);
 
 // js-cookie
 import Cookies from 'js-cookie'
+Vue.prototype.$cookie = Cookies;
 
 // normalize.css
 import 'normalize.css/normalize.css'
