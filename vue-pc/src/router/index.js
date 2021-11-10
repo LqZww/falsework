@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
@@ -16,10 +15,27 @@ const routes = [
     name: 'Home',
     component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
+  {
+    path: '/404',
+    component: (resolve) => require(['@/views/features/404'], resolve),
+  },
+  {
+    path: '/401',
+    component: (resolve) => require(['@/views/features/401'], resolve),
+  },
 
+
+
+
+  {
+    path: "*",
+    redirect: "/404"
+  }
 ]
 
 const router = new VueRouter({
+  mode: 'history',
+  scrollBehavior: () => ({ y: 0 }),
   routes
 })
 
